@@ -94,7 +94,7 @@ def main_sequence_TZ(wMS=False, overplot=False):
     plt.show()
 
 def load_star(path, Tc):
-    return pickle.load( open("{}/{}.p".format(path, Tc), "rb"))
+    return pickle.load( open("{}/{}".format(path, Tc), "rb"))
 
 def plotAll(star):
     plot(star)
@@ -121,6 +121,7 @@ def plot(star):
     axes.set_xlabel(r'$\frac{R}{R_*}$')
     axes.axvspan(star.r[star.convectiveRegion]/r_surf, 1, facecolor='grey', alpha=0.5)
     axes.legend()
+    fig.savefig('star_main.png')
 
 def plotPressure(star):
     r_surf = star.r[-1]
@@ -134,6 +135,7 @@ def plotPressure(star):
     axes.set_xlabel(r'$\frac{R}{R_*}$')
     axes.axvspan(star.r[star.convectiveRegion]/r_surf, 1, facecolor='grey', alpha=0.5)
     axes.legend()
+    fig.savefig('star_pressure.png')
 
 def plotOpacity(star):
     r_surf = star.r[-1]
@@ -147,6 +149,7 @@ def plotOpacity(star):
     axes.set_ylim(-2,10)
     axes.axvspan(star.r[star.convectiveRegion]/r_surf, 1, facecolor='grey', alpha=0.5)
     axes.legend()
+    fig.savefig('star_opacity.png')
 
 def plotdLdr(star):
     r_surf = star.r[-1]
@@ -158,6 +161,7 @@ def plotdLdr(star):
     axes.set_xlabel(r'$\frac{R}{R_*}$')
     axes.axvspan(star.r[star.convectiveRegion]/r_surf, 1, facecolor='grey', alpha=0.5)
     axes.legend()
+    fig.savefig('star_dL_dr.png')
 
 def plotdlogPdlogT(star):
     r_surf = star.r[-1]
@@ -167,6 +171,7 @@ def plotdlogPdlogT(star):
     axes.set_xlabel(r'$\frac{R}{R_*}$')
     axes.axvspan(star.r[star.convectiveRegion]/r_surf, 1, facecolor='grey', alpha=0.5)
     axes.legend()
+    fig.savefig('star_dlogP_dlogT.png')
 
 #solveAllStars(rng_T)
 #S = main_sequence()
